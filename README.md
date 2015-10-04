@@ -1,4 +1,4 @@
-#Functional Programming JS
+#Functional Programming in JavaScript
 
 ##함수형 언어란?
 - 함수형 프로그래밍 패러다임을 촉진하는 언어
@@ -94,4 +94,37 @@
 - 비동기 처리 등에 획기적으로 유리함.
 - 자바스크립트 자체는 Lazy를 지원하지 않지만 외부 라이브러리를 이용하여 구현 가능.
 
+#함수형 프로그래밍 도구
+map, filter, reduce: 기본도구 이면서 순수함수, 고차함수의 표본
 
+
+##callback
+다른 함수에서 사용되도록 인자로 주어지는 함수. 익명함수로 많이 사용됨.
+- 함수 이름만 인자로 넘김. 만약 호출까지 하면?
+
+##Array.prototype.map()
+- callback(): This function produces an element for the new array, receiving these arguments:
+- currentValue: This argument gives the current element being processed in the array
+- index: This argument gives the index of the current element in the array
+- array: This argument gives the array being processed
+- thisArg(): This function is optional. The value is used as this when executing callback. 
+- 배열에서만 사용 가능하지만 Custom 객체에 쉽게 확장 가능하다.
+- MyObject.prototype.map = function(f) {
+  return new MyObject(f(this.value));
+};
+
+##Array.prototype.filter()
+- 예제코드
+
+##Array.prototype.redude()
+배열의 모든 값을 연산하여 하나의 값으로 만든다.
+- callback 함수 인자: 최소 2개 필요. previous value, current value
+- 예제코드
+
+##Array.prototype.foreach()
+- map과 다른 점은?
+- for loop의 간결한 버젼
+
+## 그 외 helper 함수들
+concat, reverse, sort, every, some. ...
+- non-pure한 경우 조심.
