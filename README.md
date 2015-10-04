@@ -50,8 +50,48 @@
 ## 결론
 많은 논란이 있지만(자바스크립트가 함수형 언어인지, 객체지향 언어인지...) 자바스크립트는 함수형 구현에 좋은 재료이며 자바스크립트를 제대로 활용하기 위해서는 함수형 Feature를 활용할 수 있어야 함.
 
+#함수랑 놀기
+함수형 프로그래밍은 함수를 chaining, nesting, higer ordering 등등 함수가 중심인 구현임. 따라서 함수랑 친해져야 함.
 
+##자바스크립트의 딜레마와 그 솔루션
+- Safety vs. Manipulatability
+- Solution: Self invoking func. 자기 자신을 호출하는 함수.
+- Closure: 함수가 정의된 스코프 밖에서 호출해도 부모 함수에서 정의된 변수를 접근할 수 있음. 모든 함수형 언어는 Closure를 지원함.
 
+##고차함수
+- Closure는 고차함수를 이미 사용하고 있음. 고차함수의 정의: 함수를 인자로 받거나 리턴하는 함수
+- 기존 방법과의 근본적 차이: 로직을 값처럼 다른 함수에 전달할 수 있음. 예) iterating an array
 
+##순수함수
+- 인풋만으로 아웃풋이 결정된다. 아무 값도 바꾸지 않는다. -> 리턴값을 얻는데만 사용된다. 예) Math.sqrt(4)
+- 수학에서 말하는 '함수'를 충실히 따른 함수.
+- 재사용성이 높음: 완전히 독립적이고 항상 똑같이 동작하므로 재사용이 매우 용이함.
+
+##익명함수
+- 이름이 없다는 것보다 더 중요한 것은, 필요할 때 ad-hoc으로 추가할 수 있다는 것. 편의성: 한번 쓰일 함수의 이름을 정할 필요가 없음.
+- 예제: PowerOfTwo, obj accumulator revisited
+- 단지 syntactic sugar? no! Lamda calculus의 핵심(변수 참조, 함수 호출, 익명함수 만으로 Turing-complete 만족: can simulate single-taped Turing machine).
+- 주의할 점: 디버깅이 힘들다. 왜?
+
+##Method Chaining
+- 한개의 object에 연산이 연속될 때 코드를 간결하게 해줌. 예제코드.
+
+##Recursion
+- 모든 재귀는 loop으로 바꿀수 있고, 모든 loop은 재귀로 바꿀 수 있음
+- 하지만 재귀가 적절한 경우는 loop가 적절한 경우와 완전히 다름(예: Tree traversing)
+
+##Devide and Conqure
+- 재귀는 루프를 대체하는 것 뿐만 아니라 Divide and Conqure를 촉진한다: 큰 문제를 풀 수 있는 작은 크기로 scale down 한다.
+- 예제: 최대공약수 구하기(나머지도 두 숫자의 최대 공약수로 나누어 떨어진다 -> 나머지가 0 이면?)
+- 현실적인 예제: Merge Sort
+
+##Lazy Evaluation
+- 함수의 리턴값을 결정하는데 필요한 순간까지 계산을 하지 않고 기다린다.
+- 성능 향상에 유리함. 극단적인 경우: 무한 수열
+- // wishful JavaScript pseudocode:
+- var infinateNums = range(1 to infinity);
+- var tenPrimes = infinateNums.getPrimeNumbers().first(10);
+- 비동기 처리 등에 획기적으로 유리함.
+- 자바스크립트 자체는 Lazy를 지원하지 않지만 외부 라이브러리를 이용하여 구현 가능.
 
 
