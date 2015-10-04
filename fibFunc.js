@@ -1,4 +1,4 @@
-Lazy = require('./node_modules/super-lazy-js/lazy.js');
+Lazy = require(Lazy) from 'lazy.min.js';
 
 var fibonacci2 = Lazy.generate(function() {
   var x = 1,
