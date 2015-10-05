@@ -18,7 +18,7 @@
 함수형 스타일을 제대로 느끼는 순간 "심오한 깨달음"을 얻을 것이고 이 노력이 그만한 가치가 있다고 느낄 것이다. 또한 당신이 Full-time 함수형 개발자가 되건 아니건 더 좋은 프로그래머가 되게 해줄 것이다.
 
 ### Cleaner Code
-디버깅, 테스팅, 유지보수를 쉽게 해준다. -> 예제: 2차원 배열을 일차원 배열로 변환하기
+디버깅, 테스팅, 유지보수를 쉽게 해준다. -> 예제: 2차원 배열을 일차원 배열로 변환하기(mer2dArray)
 
 ### Modularity
 함수형 스타일은 큰 문제를 잘게 쪼개서 구현하도록 유도한다 -> 모듈화 유도. 
@@ -34,7 +34,7 @@
 
 ##Functional Programming in a nonfunctional world
 - 완전히 함수형 구현은 현실에서 매우 드물다. 함수형 스타일로 기존 코드를 개선할 수 있다.
-- 특히 임시 변수 및 루프가 있는 곳이 고차원 함수를 통해 개선할 수 있는 후보이다. 예) counting words
+- 특히 임시 변수 및 루프가 있는 곳이 고차원 함수를 통해 개선할 수 있는 후보이다. 예) counting words(wordsImp.js)
 
 ## 자바스크립트는 함수형 언어인가?
 - 자바스크립트는 가장 많이 쓰이면서 가장 이해를 못 받고 있는 함수형 언어
@@ -58,24 +58,27 @@
 - Safety vs. Manipulatability
 - Solution: Self invoking func. 자기 자신을 호출하는 함수.
 - Closure: 함수가 정의된 스코프 밖에서 호출해도 부모 함수에서 정의된 변수를 접근할 수 있음. 모든 함수형 언어는 Closure를 지원함.
+- 예)objImp.js
 
 ##고차함수
 - Closure는 고차함수를 이미 사용하고 있음. 고차함수의 정의: 함수를 인자로 받거나 리턴하는 함수
-- 기존 방법과의 근본적 차이: 로직을 값처럼 다른 함수에 전달할 수 있음. 예) iterating an array
+- 기존 방법과의 근본적 차이: 로직을 값처럼 다른 함수에 전달할 수 있음. 예) iterating an array. objFunc.js
 
 ##순수함수
 - 인풋만으로 아웃풋이 결정된다. 아무 값도 바꾸지 않는다. -> 리턴값을 얻는데만 사용된다. 예) Math.sqrt(4)
 - 수학에서 말하는 '함수'를 충실히 따른 함수.
 - 재사용성이 높음: 완전히 독립적이고 항상 똑같이 동작하므로 재사용이 매우 용이함.
+- pure.js
 
 ##익명함수
 - 이름이 없다는 것보다 더 중요한 것은, 필요할 때 ad-hoc으로 추가할 수 있다는 것. 편의성: 한번 쓰일 함수의 이름을 정할 필요가 없음.
-- 예제: PowerOfTwo, obj accumulator revisited
+- 예제: PowerOfTwo(anony.js)
 - 단지 syntactic sugar? no! Lamda calculus의 핵심(변수 참조, 함수 호출, 익명함수 만으로 Turing-complete 만족: can simulate single-taped Turing machine).
 - 주의할 점: 디버깅이 힘들다. 왜?
 
 ##Method Chaining
-- 한개의 object에 연산이 연속될 때 코드를 간결하게 해줌. 예제코드.
+- 한개의 object에 연산이 연속될 때 코드를 간결하게 해줌.
+- chain.js
 
 ##Recursion
 - 모든 재귀는 loop으로 바꿀수 있고, 모든 loop은 재귀로 바꿀 수 있음
@@ -83,7 +86,7 @@
 
 ##Devide and Conqure
 - 재귀는 루프를 대체하는 것 뿐만 아니라 Divide and Conqure를 촉진한다: 큰 문제를 풀 수 있는 작은 크기로 scale down 한다.
-- 예제: 최대공약수 구하기(나머지도 두 숫자의 최대 공약수로 나누어 떨어진다 -> 나머지가 0 이면?)
+- 예제: 최대공약수 구하기 구현(나머지도 두 숫자의 최대 공약수로 나누어 떨어진다 -> 나머지가 0 이면?)
 - 현실적인 예제: Merge Sort
 
 ##Lazy Evaluation
@@ -102,6 +105,7 @@ map, filter, reduce: 기본도구 이면서 순수함수, 고차함수의 표본
 ##callback
 다른 함수에서 사용되도록 인자로 주어지는 함수. 익명함수로 많이 사용됨.
 - 함수 이름만 인자로 넘김. 만약 호출까지 하면?
+- 예제 구현
 
 ##Array.prototype.map()
 - callback(): This function produces an element for the new array, receiving these arguments:
@@ -115,16 +119,16 @@ map, filter, reduce: 기본도구 이면서 순수함수, 고차함수의 표본
 };
 
 ##Array.prototype.filter()
-- 예제코드
+- 예제코드: filter.js
 
 ##Array.prototype.redude()
 배열의 모든 값을 연산하여 하나의 값으로 만든다.
 - callback 함수 인자: 최소 2개 필요. previous value, current value
-- 예제코드
 
 ##Array.prototype.foreach()
 - map과 다른 점은?
 - for loop의 간결한 버젼
+- 실험
 
 ## 그 외 helper 함수들
 concat, reverse, sort, every, some. ...
