@@ -12,4 +12,5 @@ function merge2dArrayIntoOne(arrays) {
   return merged
 }
 
+
 console.log(merge2dArrayIntoOne(arr2d));
