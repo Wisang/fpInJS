@@ -11,4 +11,9 @@ printCenter('hello world');
 
 // pure function that accomplishes the same thing
 
-//var messages = ['Hi', 'Hello', 'Sup', 'Hey', 'Hola'];
+// var messages = ['Hi', 'Hello', 'Sup', 'Hey', 'Hola'];
+// messages.map(function(s,i){
+//   return printSomewhere(s, 100*i*10, 100*i*10);
+// }).forEach(function(element) {
+//   document.body.appendChild(element);
+// });
