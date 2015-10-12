@@ -107,7 +107,7 @@ map, filter, reduce: 기본도구 이면서 순수함수, 고차함수의 표본
 - 함수 이름만 인자로 넘김. 만약 호출까지 하면?
 - 예제 구현
 
-##Array.prototype.map()
+##Array.prototype.map(): Ringleader
 - callback(): This function produces an element for the new array, receiving these arguments:
 - currentValue: This argument gives the current element being processed in the array
 - index: This argument gives the index of the current element in the array
